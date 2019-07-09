@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+  <title>用户注册</title>
+</h:head>
+    <f:view encoding="utf-8">
+<h:body>
+  <h:form>
+    
+    <table width="100%">
+        <tr>
+                 <td width="6%" align="right"></td>
+                 <td width="94%" align="left"><h2>用户注册</h2></td>
+        </tr>
+      <tr>
+        <td width="6%" align="right">用户名:</td>
+        <td width="94%" align="left">
+          <h:inputText label="All Name" 
+                       id="aname" value="#{userBean.allName}" 
+                       required="true">
+              <f:validateLength minimum="2"/>
+          </h:inputText>
+          <h:message for="aname" />
+        </td>
+      </tr>
+      <tr>
+        <td align="right">性别:</td>
+        <td align="left">
+          <h:selectOneRadio label="Sex" 
+                            id="sex" value="#{userBean.sex}" required="true">
+            <f:selectItem itemLabel="男" itemValue="M" />
+            <f:selectItem itemLabel="女" itemValue="F" />
+          </h:selectOneRadio>
+          <h:message for="sex" />
+        </td>
+      </tr>
+       <tr>
+        <td align="right">出生日期:</td>
+        <td align="left">
+          <h:inputText label="Date of Birth"
+                       id="dob" value="#{userBean.dob}" required="true">
+            <f:convertDateTime pattern="MM-dd-yy" />
+          </h:inputText> (mm-dd-yy)
+          <h:message for="dob" />
+        </td>
+      </tr>
+      <tr>
+        <td align="right">邮箱地址:</td>
+        <td align="left">
+          <h:inputText label="Email Address"
+                       id="email" value="#{userBean.email}" required="true"
+                       validator="#{userBean.validateEmail}"/>
+          <h:message for="email" />
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><h:commandButton value="注册" action="confirm"  /> </td>
+        <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;<h:commandButton value="取消" action="goodbye" immediate="true" />
+        </td>
+      </tr>  
+     </table>
+  </h:form>
+</h:body>
+    <ui:debug  hotkey="M"/>
+    </f:view>
+</html>

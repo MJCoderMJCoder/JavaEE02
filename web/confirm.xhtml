@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+  <title>确认信息</title>
+</h:head>
+<h:body>
+  <h:form>
+    
+    <table width="100%">
+        <tr>
+                 <td width="6%" align="right"></td>
+                 <td width="94%" align="left"><h2>确认信息</h2></td>
+        </tr>
+      <tr>
+        <td align="right">用户名:</td>
+        <td align="left">
+          <h:outputText value="#{userBean.allName}"/>
+        </td>
+      </tr>
+      <tr>
+        <td align="right">性别:</td>
+        <td align="left">
+          <h:outputText value="#{userBean.sex}" />
+        </td>
+      </tr>
+      <tr>
+        <td align="right">出生日期:</td>
+        <td align="left">
+          <h:outputText value="#{userBean.dob}" />
+        </td>
+      </tr>
+      <tr>
+        <td align="right">邮箱地址:</td>
+        <td align="left">
+          <h:outputText value="#{userBean.email}" />
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><h:commandButton value="修改" action="register" /></td>
+        <td align="left"><h:commandButton value="提交" action="#{userBean.addConfirmedUser}" /></td>
+      </tr>
+    </table>
+  </h:form>
+</h:body>
+</html>

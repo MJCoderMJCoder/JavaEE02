@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+   <h:head>
+      <title>用户登陆</title>
+      <f:metadata>
+      <f:viewParam name="name" value="#{login.name}" ></f:viewParam></f:metadata>
+   </h:head>
+   <h:body>
+      <h:form>
+            
+         <table width="100%">
+             <tr>
+                 <td width="5%" align="right"></td>
+                 <td width="95%" align="left"><h2>用户登陆</h2></td>
+             </tr>
+            <tr>
+                <td width="5%" align="right">用户名：</td>
+                <td width="95%" align="left"><h:inputText size="20" value="#{login.name}">
+                        <f:validateLength minimum="2"/>
+                   </h:inputText>
+               </td>
+            </tr>
+            <tr>
+               <td align="right">密码：</td>
+               <td align="left"><h:inputSecret size="21" value="#{login.password}"/></td>
+            </tr>
+            <tr>
+                    <td align="right">验证码：</td>
+                    <td align="left"><h:inputText size="9" value="#{login.randomcheck}" id="randomcheck"/>
+                        &nbsp; &nbsp;<h:inputText size="2" value="${login.random}" id="random2" /> 
+                    </td>
+            </tr>
+            <tr>
+                <td align="right"><h:commandButton value="登陆" action="#{login.confirmedLogin}">
+                    <f:event type="postValidate" listener="#{login.check}"/>
+                    </h:commandButton>
+                </td>
+                    <td align="left"><h:commandButton immediate="true" value="注册" action="register"/>
+                    </td>
+            </tr>
+         </table>
+      </h:form>
+   </h:body>
+</html>
